@@ -1,0 +1,106 @@
+!!! 5
+%html
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:'http-equiv' => "X-UA-Compatible", :content => "IE=edge,chrome=1"}
+    %title="Showbot #{'| ' + @title if @title}"
+    %meta{:content => "Showbot displays title suggestions from users listening to the live http://5by5.tv podcasts. It gathers these suggestions from the #5by5 IRC channel.", :name => "description"}
+    %meta{:content => "Jeremy Mack", :name => "author"}
+    %link(rel="stylesheet" href="/css/reset.css")
+    %link(rel="stylesheet" href="/css/text.css")
+    %link(rel="stylesheet" href="/css/960.css")
+    %link(rel="stylesheet" href="/css/tipsy.css")
+    %link(rel="stylesheet" href="/css/showbot.css?v=5")
+    / Modernizer
+    %script{:type => "text/javascript", :src  => "/js/modernizr.custom.js"}
+  %body
+    #wrap.container_12
+      -if development?
+        .development
+          .banner DEVELOPMENT MODE
+          .banner_push
+      #header
+        %h1.logo
+          %a{:href => '/'}Showbot
+          -# display:none so the heart doesn't briefly show
+          .heart{:style => 'display:none;'}="\<<span>3</span>"
+        %nav
+          %ul
+            %li
+              %a{:href => '/titles'}Titles
+            %li
+              %a{:href => '/links'}Links
+      .clear
+      %hr.push
+
+      #content
+        =yield
+
+      .footer_push
+    .container_12
+      %abbr#bot_love.grid_12{:title => "Not like that."} Showbot loves you.
+    #footer
+      .container_12
+        %ul
+          %li.grid_3.push_2
+            %h2 Why
+            %p="The jackals in the 5by5 Chat think they know what the title " +                   |
+              "of the show should be. Showbot passes no judgements. Showbot collects" +           |
+              " the title suggestions from IRC and shows them here. Showbot is here to help."     |
+          %li.grid_3.push_2
+            %h2 Who
+            %p Showbot was created by Jeremy Mack, <a href="http://twitter.com/mutewinter">@mutewinter</a>.
+            %p Showbot also receives love from coders in the 5by5 community on GitHub.
+          %li.grid_3.push_2
+            %h2 Where
+            %p <a href="http://github.com/mutewinter/Showbot">Showbot on GitHub</a>
+            %p <a href="http://5by5.tv/chat">Showbot in IRC</a>
+            %p <a href="http://5by5.tv">5by5.tv</a>
+
+    / Javascript at the bottom for fast page loading
+    / Grab Google CDN's jQuery. fall back to local if necessary
+    %script{:type => "text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"}
+    :javascript
+      !window.jQuery && document.write('<script src="/js/jquery.min.js"><\/script>')
+    / JQuery Plugins
+    %script{:type => "text/javascript", :src  => "/js/jquery.timeago.js"}
+    %script{:type => "text/javascript", :src  => "/js/jquery.tablesorter.min.js"}
+    %script{:type => "text/javascript", :src => "/js/jquery.tipsy.js"}
+    %script{:type => "text/javascript", :src => "/js/d3.v3.min.js"}
+    %script{:type => "text/javascript", :src => "/js/d3.layout.cloud.js"}
+    %script{:type => "text/javascript", :src => "/js/word_cloud.js"}
+    / Main JS
+    %script{:type => "text/javascript", :src  => "/js/showbot.js"}
+    :javascript
+      var _gauges = _gauges || [];
+      (function() {
+        var t   = document.createElement('script');
+        t.type  = 'text/javascript';
+        t.async = true;
+        t.id    = 'gauges-tracker';
+        t.setAttribute('data-site-id', '50db683e613f5d7e99000002');
+        t.src = '//secure.gaug.es/track.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(t, s);
+      })();
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-24163893-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    :javascript
+      $(function() {
+        $('tr.cluster-top').children('td.title')
+          .css("cursor","pointer")
+          .attr("title","Click to expand/collapse")
+          .click(function(){
+            $(this).parent().siblings('.child-'+this.parentElement.id).toggle();
+            $(this).find('.cluster-arrow').toggleClass('expanded-arrow')
+          });
+        $('tr[class^="expand-child"]').hide().children('td');
+      });

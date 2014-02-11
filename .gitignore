@@ -1,0 +1,10 @@
+/password.yml
+/readme.html
+/.sass-cache/
+.DS_Store
+
+/development.db
+.sass-cache
+
+/tmp/
+/.env

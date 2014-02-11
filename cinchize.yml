@@ -1,0 +1,47 @@
+---
+# Plugins used for all configs
+plugins: &plugins
+  plugins:
+    -
+      class: "Cinch::Plugins::FiveByFun"
+    -
+      class: "Cinch::Plugins::Schedule"
+    -
+      class: "Cinch::Plugins::Admin"
+    -
+      class: "Cinch::Plugins::Showbot"
+    -
+      class: "Cinch::Plugins::Suggestions"
+    -
+      class: "Cinch::Plugins::Shoutcast"
+    -
+      class: "Cinch::Plugins::Twitter"
+    -
+      class: "Cinch::Plugins::Links"
+    -
+      class: "Cinch::Plugins::Identify"
+      options:
+        :password: "test" # Enter your password here
+        :type: :nickserv # Most servers use nickserv, so setting this as the sane default.
+
+# The base configuration for freenode
+freenode_base: &freenode_base
+  <<: *plugins
+  server: irc.freenode.net
+  port: 6667
+
+options:
+    log_output: true
+    dir_mode: normal
+    dir: "pid"
+servers:
+  freenode_test:
+    <<: *freenode_base
+    nick: showbot_test
+    channels:
+      - "#cinch-bots"
+  freenode_live:
+    <<: *freenode_base
+    nick: showbot
+    channels:
+      - "#5by5"
