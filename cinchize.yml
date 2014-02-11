@@ -21,7 +21,7 @@ plugins: &plugins
     -
       class: "Cinch::Plugins::Identify"
       options:
-        :password: "test" # Enter your password here
+        :password: "omgponies" # Enter your password here
         :type: :nickserv # Most servers use nickserv, so setting this as the sane default.
 
 # The base configuration for freenode
@@ -42,6 +42,6 @@ servers:
       - "#cinch-bots"
   freenode_live:
     <<: *freenode_base
-    nick: showbot
+    nick: Stuffybot
     channels:
       - "#goodstuff"
