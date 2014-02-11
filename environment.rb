@@ -10,7 +10,7 @@ require 'sass'
 
 require 'sinatra' unless defined?(Sinatra)
 
-LIVE_URL = 'http://5by5.tv/live/data.json'
+LIVE_URL = 'http://www.goodstuff.fm/live.json'
 
 configure do
   # load models

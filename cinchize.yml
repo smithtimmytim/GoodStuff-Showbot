@@ -44,4 +44,4 @@ servers:
     <<: *freenode_base
     nick: showbot
     channels:
-      - "#5by5"
+      - "#goodstuff"
