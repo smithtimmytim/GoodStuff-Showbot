@@ -22,7 +22,7 @@ configure(:production, :development) do
 
   current_directory = File.expand_path(File.dirname(__FILE__))
   sqlite_file = File.join(current_directory, 'db', "#{Sinatra::Base.environment}.db")
-  DataMapper.setup(:default, (ENV["SHOWBOT_DATABASE_URL"] ||
+  DataMapper.setup(:default, (ENV["HEROKU_POSTGRESQL_CYAN_URL"] ||
                               "sqlite3:///#{sqlite_file}"))
   DataMapper.finalize
 end
