@@ -36,11 +36,11 @@ module Cinch
       # This can happen if showbot gets disconnected and reconnects before
       # the last bot as been kicked from the IRC server.
       def fix_name
-        if @bot.nick == "showbot" or @bot.nick == "showbot_test"
+        if @bot.nick == "Stuffybot" or @bot.nick == "showbot_test"
           puts "Nick is fine, no change necessary."
         else
           puts "Fixing nickname."
-          @bot.nick = "showbot"
+          @bot.nick = "Stuffybot"
         end
       end
 
