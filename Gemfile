@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '1.9.2-p327'
 
 # Regular
 gem 'tzinfo'
