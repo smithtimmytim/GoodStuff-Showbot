@@ -4,8 +4,8 @@ plugins: &plugins
   plugins:
     -
       class: "Cinch::Plugins::FiveByFun"
-    -
-      class: "Cinch::Plugins::Schedule"
+    # -
+    #   class: "Cinch::Plugins::Schedule"
     -
       class: "Cinch::Plugins::Admin"
     -
@@ -39,7 +39,7 @@ servers:
     <<: *freenode_base
     nick: showbot_test
     channels:
-      - "#cinch-bots"
+      - "#goodstuff_dev"
   freenode_live:
     <<: *freenode_base
     nick: Stuffybot
