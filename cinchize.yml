@@ -14,8 +14,8 @@ plugins: &plugins
       class: "Cinch::Plugins::Suggestions"
     -
       class: "Cinch::Plugins::Shoutcast"
-    -
-      class: "Cinch::Plugins::Twitter"
+    # -
+    #   class: "Cinch::Plugins::Twitter"
     -
       class: "Cinch::Plugins::Links"
     -

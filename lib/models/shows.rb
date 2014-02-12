@@ -2,7 +2,7 @@
 
 require 'json'
 
-SHOWS_JSON = File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "public", "shows.json"))
+SHOWS_JSON = 'http://www.goodstuff.fm/broadcasts.json'
 
 require File.expand_path(File.join(File.dirname(__FILE__), "show"))
 
@@ -13,7 +13,8 @@ class Shows
     if not defined? @@shows_array
       # Define the static @@shows_array variable if it doesn't exist
       @@shows_array = []
-      show_hashes = JSON.parse(File.open(SHOWS_JSON).read)["shows"]
+      show_hashes = JSON.parse(open(SHOWS_JSON).read)
+
       show_hashes.each do |show_hash|
         @@shows_array.push Show.new(show_hash)
       end
