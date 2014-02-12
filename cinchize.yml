@@ -4,8 +4,8 @@ plugins: &plugins
   plugins:
     -
       class: "Cinch::Plugins::FiveByFun"
-    # -
-    #   class: "Cinch::Plugins::Schedule"
+    -
+      class: "Cinch::Plugins::Schedule"
     -
       class: "Cinch::Plugins::Admin"
     -
