@@ -3,7 +3,7 @@ require File.join(File.dirname(__FILE__), 'environment')
 require 'optparse'
 require 'cinchize'
 
-$:.unshift "#{File.dirname(__FILE__)}/lib"
+# $:.unshift "#{File.dirname(__FILE__)}/lib"
 
 # Required to parse the cinchize.yml file properly
 YAML::ENGINE.yamler = 'syck'
