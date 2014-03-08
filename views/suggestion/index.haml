@@ -1,7 +1,7 @@
 - suggestions = suggestion_sets.map{|s| s.suggestions}.flatten
 -if suggestions.count > 0
   %h2.subtitle="#{suggestions.count} Title Suggestion#{suggestions.count == 1 ? '' : 's'} in the last 24 hours"
-  .irc_help In the <a href='http://5by5.tv/chat'>5by5 chat room</a>? Type <span class='code'>!suggest Wacky Title</span> to suggest a title.
+  .irc_help Type <span class='code'>!suggest Wacky Title</span> to suggest a title.
 
   %hr
 
@@ -29,4 +29,4 @@
   .clear
 -else
   %h2.subtitle.grid_12 No title suggestions yet
-  .irc_help In the <a href='http://5by5.tv/chat'>5by5 chat room</a>? Type <span class='code'>!suggest Wacky Title</span> to suggest a title.
+  .irc_help Type <span class='code'>!suggest Wacky Title</span> to suggest a title.
